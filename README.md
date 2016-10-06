@@ -26,7 +26,7 @@ Once you've installed the requirements do the following to set-up for developmen
 1. `cd /path/to/node-edition/node_modules/styleguidekit-assets-mylt`
 2. `npm install`
 3. `bower install`
-4. In `patternlab-config.json` replace `"styleguide" : "./node_modules/styleguidekit-assets-default/dist/"` with `"styleguide" : "./node_modules/styleguidekit-assets-mylt/dist/"`
+4. In `patternlab-config.json` replace `"styleguide" : "./node_modules/styleguidekit-assets-default/dist/"` with `"styleguide" : "./node_modules/styleguidekit-assets-mylt/dist/"` to reference your StyleguideKit
 
 ## Making Changes
 
