@@ -1,17 +1,17 @@
 {
-  "name": "styleguidekit-assets-default",
-  "version": "3.3.1",
-  "description": "The default set of front-end assets for Pattern Lab.",
+  "name": "styleguidekit-assets-mylt",
+  "version": "1.0.0",
+  "description": "The default set of front-end assets for Pattern Lab myLT.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/pattern-lab/styleguidekit-assets-default.git"
+    "url": "git://github.com/lostsatellites/styleguidekit-assets-mylt.git"
   },
-  "author": "Dave Olsen",
+  "author": "Jeremy Elder",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pattern-lab/styleguidekit-assets-default/issues"
+    "url": "https://github.com/lostsatellites/styleguidekit-assets-mylt/issues"
   },
-  "homepage": "https://github.com/pattern-lab/styleguidekit-assets-default",
+  "homepage": "https://github.com/lostsatellites/styleguidekit-assets-mylt",
   "devDependencies": {
     "del": "^1.1.1",
     "gulp": "^3.8.6",
