@@ -14,7 +14,7 @@ These static assets control the look, feel, and functionality of the front-end o
 In order to modify these assets you need to install the following:
 
 * [Pattern Lab Node Core](https://github.com/pattern-lab/patternlab-node)
-* [Pattern Lab Node Edition](https://github.com/pattern-lab?utf8=%E2%9C%93&query=edition-node)
+* [Pattern Lab Node - Gulp Edition](https://github.com/pattern-lab/edition-node-gulp)
 * [Node.js](http://nodejs.org) and NPM
 * [Bower](http://bower.io)
 * [Ruby Sass](http://sass-lang.com/install)
