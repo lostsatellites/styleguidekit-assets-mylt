@@ -1,9 +1,9 @@
 {
-  "name": "styleguidekit-assets-default",
+  "name": "styleguidekit-assets-mylt",
   "version": "0.1.0",
-  "homepage": "https://github.com/pattern-lab/styleguidekit-assets-default",
+  "homepage": "https://github.com/lostsatellites/styleguidekit-assets-mylt",
   "authors": [
-    "Dave Olsen <dmolsen@gmail.com>"
+    "Jeremy Elder <lostsatellites@gmail.com>"
   ],
   "license": "MIT",
   "private": true,
