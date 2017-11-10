@@ -62,10 +62,6 @@
 
 .sg-header {
   background-color: #0078aa;
-  background-image: url("../images/icon-core.png");
-  background-position: center 8px;
-  background-repeat: no-repeat;
-  background-size: 24px 25px;
   color: #fff;
   font-family: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
   font-size: 0.813rem;
@@ -75,12 +71,6 @@
   left: 0;
   width: 100%;
   z-index: 4;
-}
-@media all and (min-width: 42em) {
-  .sg-header {
-    background-position: 8px 8px;
-    padding-left: 2rem;
-  }
 }
 .sg-header ul {
   padding: 0;
@@ -98,8 +88,33 @@
           transition: color 0.2s linear, background 0.2s linear;
 }
 .sg-header a:focus, .sg-header a:hover, .sg-header a.active {
-  background: #005b81;
+  background-color: #005b81;
   color: #fff;
+}
+.sg-header .sg-nav-home {
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -42%);
+      -ms-transform: translate(-50%, -42%);
+          transform: translate(-50%, -42%);
+}
+@media all and (min-width: 42em) {
+  .sg-header .sg-nav-home {
+    display: inline-block;
+    padding: 2px 0 0 8px;
+    position: relative;
+    top: auto;
+    left: auto;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+    vertical-align: middle;
+  }
+}
+.sg-header .sg-nav-home:focus, .sg-header .sg-nav-home:hover, .sg-header .sg-nav-home.active {
+  background-color: transparent;
 }
 
 .sg-nav-toggle {
@@ -122,6 +137,12 @@
   }
   .sg-nav-container.active {
     max-height: 50em;
+  }
+}
+@media all and (min-width: 42em) {
+  .sg-nav-container {
+    display: inline-block;
+    vertical-align: middle;
   }
 }
 
@@ -192,7 +213,7 @@
   list-style: none;
   margin: 0;
   max-height: 0;
-  min-width: 10em;
+  min-width: 14em;
   overflow: hidden;
   padding: 0;
   -webkit-transition: max-height 0.1s ease-out;
@@ -253,12 +274,7 @@
 }
 
 .sg-size {
-  width: 135px;
-}
-@media all and (min-width: 42em) {
-  .sg-size {
-    width: auto;
-  }
+  width: auto;
 }
 
 .sg-current-size {
@@ -322,9 +338,8 @@
   border: 0;
   color: #fff;
   cursor: pointer;
-  font-size: 0.813rem;
-  line-height: 1;
-  padding: 0.9em 0.7em;
+  height: 40px;
+  padding: 0 8px;
   text-decoration: none;
 }
 .sg-tools-toggle::after {
@@ -677,8 +692,17 @@
 .sg-pattern-desc p:last-child {
   margin: 0;
 }
-.sg-pattern-desc pre {
-  border-radius: 6px !important;
+.sg-pattern-desc table {
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+.sg-pattern-desc table th,
+.sg-pattern-desc table td {
+  border: 1px solid #555;
+  padding: 0.5rem;
+  text-align: left;
+  vertical-align: top;
 }
 
 .sg-pattern-lineage {
@@ -689,6 +713,7 @@
 .sg-pattern-desc pre,
 .sg-pattern-extra-code pre {
   background-color: #f5f5f5;
+  border-radius: 3px !important;
   color: #444;
   display: block;
   -webkit-box-flex: 1;
@@ -697,11 +722,10 @@
   font-family: Menlo,Monaco,Consolas,Courier New,monospace;
   font-size: 90%;
   line-height: 1.5 !important;
-  margin: 0 !important;
+  margin: 0 0 1.5rem 0 !important;
   margin-bottom: 1.5rem;
   overflow: scroll !important;
-  padding: 0 0.5rem 0.5rem !important;
-  padding: 1em;
+  padding: 1rem !important;
   -webkit-overflow-scrolling: touch;
 }
 .sg-pattern-desc code,
@@ -1082,4 +1106,59 @@
 }
 .sg-comment-container h2 {
   margin-bottom: 0.25em;
+}
+
+.sg-btn-copy-code {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  color: #0078aa;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.25rem;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  -webkit-transition: all 0.2s linear;
+          transition: all 0.2s linear;
+}
+.sg-btn-copy-code:focus {
+  outline: none;
+}
+.sg-btn-copy-code:focus, .sg-btn-copy-code:hover {
+  background-color: #f5f5f5;
+  border-color: #999;
+  color: #005b81;
+}
+.sg-btn-copy-code:active {
+  top: 5px;
+}
+.sg-btn-copy-code::after {
+  background-color: #000;
+  border-radius: 3px;
+  color: #fff;
+  content: 'Copied!';
+  display: block;
+  opacity: 0;
+  padding: 0.5rem 0;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: opacity 0.2s linear;
+          transition: opacity 0.2s linear;
+  width: 100%;
+}
+.sg-btn-copy-code.copied::after {
+  opacity: 1;
+}
+.sg-btn-copy-code img {
+  display: inline-block;
+  position: relative;
+  top: -1px;
+  vertical-align: middle;
 }

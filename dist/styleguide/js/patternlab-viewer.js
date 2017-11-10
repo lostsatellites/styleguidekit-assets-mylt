@@ -1,3 +1,13 @@
+// Clipboard
+var clipboard = new Clipboard('.sg-btn-copy-code');
+
+clipboard.on('success', function(e) {
+	e.clearSelection();
+	$(e.trigger).addClass('copied');
+	setTimeout(function(){ $(e.trigger).removeClass('copied'); }, 2000);
+});
+
+clipboard.on('error', function(e) {});
 /*!
  * jQuery Cookie Plugin v1.3
  * https://github.com/carhartl/jquery-cookie
@@ -854,8 +864,8 @@ var fileSuffixPattern = ((config.outputFileSuffixes !== undefined) && (config.ou
 var fileSuffixMarkup  = ((config.outputFileSuffixes !== undefined) && (config.outputFileSuffixes.markupOnly !== undefined)) ? config.outputFileSuffixes.markupOnly : '.markup-only';
 
 // add the default panels
-Panels.add({ 'id': 'sg-panel-pattern', 'default': true, 'templateID': 'pl-panel-template-code', 'httpRequest': true, 'httpRequestReplace': fileSuffixPattern, 'httpRequestCompleted': false, 'prismHighlight': true, 'keyCombo': 'ctrl+shift+u' });
-Panels.add({ 'id': 'sg-panel-html', 'name': 'HTML', 'default': false, 'templateID': 'pl-panel-template-code', 'httpRequest': true, 'httpRequestReplace': fileSuffixMarkup+'.html', 'httpRequestCompleted': false, 'prismHighlight': true, 'language': 'markup', 'keyCombo': 'ctrl+shift+y' });
+Panels.add({ 'id': 'sg-panel-html', 'name': 'HTML', 'default': true, 'templateID': 'pl-panel-template-code', 'httpRequest': true, 'httpRequestReplace': fileSuffixMarkup+'.html', 'httpRequestCompleted': false, 'prismHighlight': true, 'language': 'markup', 'keyCombo': 'ctrl+shift+y' });
+Panels.add({ 'id': 'sg-panel-pattern', 'default': false, 'templateID': 'pl-panel-template-code', 'httpRequest': true, 'httpRequestReplace': fileSuffixPattern, 'httpRequestCompleted': false, 'prismHighlight': true, 'keyCombo': 'ctrl+shift+u' });
 
 // gather panels from plugins
 Dispatcher.trigger('setupPanels');

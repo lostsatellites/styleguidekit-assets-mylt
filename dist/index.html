@@ -1,37 +1,49 @@
 <!DOCTYPE html>
 <html id="patternlab-html">
   <head id="patternlab-head">
-    
+
     <title id="title">Pattern Lab</title>
     <meta charset="UTF-8">
-    
+
     <!-- never cache patterns -->
     <meta http-equiv="cache-control" content="max-age=0" />
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="expires" content="0" />
     <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
     <meta http-equiv="pragma" content="no-cache" />
-    
+
     <!-- handle the viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" href="styleguide/images/apple-touch-icon.png">
+    <link rel="mask-icon" sizes="any" href="styleguide/images/core-icon.svg color="#0078aa">
+    <link rel="icon" href="styleguide/images/favicon.ico">
+    <!--[if IE]>
+      <link rel="shortcut icon" href="styleguide/images/favicon.ico">
+    <![endif]-->
+    <meta name="msapplication-TileColor" content="#0078aa">
+    <meta name="msapplication-TileImage" content="styleguide/images/win8-tile-icon.png">
+    <meta name="theme-color" content="#ffffff">
+
     <!-- load the pattern lab css -->
     <link rel="stylesheet" href="styleguide/css/styleguide.min.css" media="all" />
     <link rel="stylesheet" href="styleguide/css/prism-typeahead.min.css" media="all" />
-    
+
   </head>
   <body id="patternlab-body">
-    
+
     <!--Style Guide Header-->
     <header class="sg-header" role="banner">
       <a href="#sg-nav-container" class="sg-nav-toggle">Menu</a>
+      <a href="/" class="sg-nav-home"><img src="styleguide/images/icon-core.svg" alt="Home"></a>
       <div class="sg-nav-container" id="sg-nav-container">
         <ol class="sg-nav" id="pl-pattern-nav-target"><!-- pattern lab nav will be inserted here --></ol>
         <div class="sg-controls" id="sg-controls"><!-- ish Controls will be inserted here --></div>
       </div>
     </header>
     <!--End Style Guide Header-->
-    
+
     <!-- iFrame -->
     <div id="sg-vp-wrap">
       <div id="sg-cover"></div>
@@ -43,10 +55,10 @@
       </div>
     </div>
     <!--end iFrame-->
-    
+
     <!-- modal window -->
     <div id="sg-modal-container" class="sg-modal anim-ready" style="bottom: -2000px">
-      
+
       <!-- modal close btn -->
       <button id="sg-modal-close-btn" class="sg-modal-close-btn" title="Hide pattern info">
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">
@@ -54,12 +66,12 @@
             <path fill="#808080" d="M11.8905,9.6405 L11.8905,9.6405 L8.25,6 L11.8905,2.3595 L11.8905,2.3595 C11.9295,2.3205 11.958,2.27475 11.976,2.226 C12.0255,2.0925 11.997,1.9365 11.8905,1.82925 L10.17075,0.1095 C10.0635,0.00225 9.9075,-0.02625 9.774,0.024 C9.72525,0.042 9.6795,0.0705 9.6405,0.1095 L9.6405,0.1095 L6,3.75 L2.3595,0.1095 L2.3595,0.1095 C2.3205,0.0705 2.27475,0.042 2.226,0.024 C2.0925,-0.0255 1.9365,0.00225 1.82925,0.1095 L0.1095,1.82925 C0.00225,1.9365 -0.02625,2.0925 0.024,2.226 C0.042,2.27475 0.0705,2.3205 0.1095,2.3595 L0.1095,2.3595 L3.75,6 L0.1095,9.6405 L0.1095,9.6405 C0.0705,9.6795 0.042,9.72525 0.024,9.774 C-0.0255,9.9075 0.00225,10.0635 0.1095,10.17075 L1.82925,11.8905 C1.9365,11.99775 2.0925,12.02625 2.226,11.976 C2.27475,11.958 2.3205,11.9295 2.3595,11.8905 L2.3595,11.8905 L6,8.25 L9.6405,11.8905 L9.6405,11.8905 C9.6795,11.9295 9.72525,11.958 9.774,11.976 C9.9075,12.0255 10.0635,11.99775 10.17075,11.8905 L11.8905,10.17075 C11.99775,10.0635 12.02625,9.9075 11.976,9.774 C11.958,9.72525 11.9295,9.6795 11.8905,9.6405 L11.8905,9.6405 Z"></path>
           </svg>
       </button><!--end .sg-modal-close-btn-->
-      
+
       <div id="sg-modal-content" class="sg-modal-content"></div><!--end .sg-modal-content-->
-      
+
     </div><!--end .sg-modal-->
     <!-- end modal window -->
-    
+
     <!-- mustache templates -->
     <script type="text/mustache" id="pl-pattern-nav-template">
       {{# patternTypes }}
@@ -76,10 +88,11 @@
   {{/ patternItems }}
   </ol></li>
 {{/ patternTypes }}
-<li><a href="styleguide/html/styleguide.html" class="sg-pop" data-patternpartial="all">All</a></li>
-
+<!-- Uncomment below to include a link in the primary navigation to view all patterns -->
+<!-- Currently this link doesn't appear to be tied in with the patternlab-config.json file -->
+<!-- <li><a href="styleguide/html/styleguide.html" class="sg-pop" data-patternpartial="all">All</a></li> -->
     </script>
-    
+
     <script type="text/mustache" id="pl-ish-controls-template">
       <div class="sg-control-content">
   <ul class="sg-control">
@@ -87,8 +100,8 @@
       <div class="sg-current-size">
         <form id="sg-form">
           <label for="sg-size-px">Size</label>
-          <input type="text" class="sg-input sg-size-px" id="sg-size-px" value="---">px /
-          <input type="text" class="sg-input sg-size-em" value="---">em
+          <input type="text" class="sg-input sg-size-px" id="sg-size-px" value="---">px <!-- / -->
+          <!-- <input type="text" class="sg-input sg-size-em" value="---">em -->
         </form><!--end #sg-form-->
       </div><!--end #sg-current-size-->
       <ul class="sg-size-options">
@@ -118,9 +131,9 @@
     {{^ ishControlsHide.tools-all }}
       <li class="sg-tools">
         <button class="sg-acc-handle sg-tools-toggle" id="sg-tools-toggle" title="Tools">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14" viewBox="0 0 14 14">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
             <title>Pattern Lab Tools</title>
-            <path fill="#808080" d="M12.767 8.343c-0.735-1.272-0.293-2.903 0.986-3.643l-1.376-2.383c-0.393 0.23-0.85 0.363-1.338 0.363-1.47 0-2.662-1.2-2.662-2.68h-2.752c0.004 0.457-0.11 0.92-0.355 1.343-0.735 1.272-2.367 1.705-3.649 0.967l-1.376 2.383c0.396 0.225 0.739 0.555 0.983 0.977 0.733 1.27 0.294 2.897-0.98 3.64l1.376 2.383c0.392-0.228 0.847-0.359 1.332-0.359 1.466 0 2.654 1.192 2.662 2.665h2.752c-0.001-0.452 0.113-0.91 0.355-1.329 0.733-1.27 2.362-1.703 3.642-0.971l1.376-2.383c-0.393-0.225-0.734-0.554-0.977-0.974zM7 9.835c-1.566 0-2.835-1.269-2.835-2.835s1.269-2.835 2.835-2.835c1.566 0 2.835 1.269 2.835 2.835s-1.269 2.835-2.835 2.835z"></path>
+            <path fill="#FFFFFF" fill-rule="evenodd" d="M9.4735,14.8482 C7.7255,15.2072 6.0585,14.9092 4.6715,14.1562 C4.3715,13.9932 4.3005,13.5942 4.5415,13.3532 L6.9195,10.9752 C7.1275,10.7672 7.4365,10.6802 7.7145,10.7772 C8.3695,11.0072 9.0965,11.0772 9.8695,10.9002 C10.8665,10.6712 11.7195,9.9992 12.2895,9.1492 C12.9725,8.1292 13.0905,7.2092 12.9445,6.3772 C12.8895,6.0672 12.4985,5.9522 12.2755,6.1752 L10.6665,7.7832 C10.2205,8.2292 9.7775,8.2282 9.5035,7.9532 L8.0455,6.4962 C7.7715,6.2222 7.7715,5.7782 8.0455,5.5042 L9.8135,3.7362 C10.0405,3.5092 9.9255,3.1072 9.6085,3.0532 C8.7785,2.9102 7.8605,3.0312 6.8455,3.7142 C5.9975,4.2852 5.3265,5.1372 5.0995,6.1332 C4.9225,6.9042 4.9925,7.6302 5.2215,8.2832 C5.3195,8.5622 5.2315,8.8732 5.0225,9.0822 L2.6465,11.4582 C2.4055,11.6992 2.0065,11.6292 1.8435,11.3282 C1.0905,9.9422 0.7925,8.2742 1.1515,6.5262 C1.7065,3.8222 3.9015,1.6582 6.6115,1.1342 C11.5475,0.1802 15.8195,4.4522 14.8655,9.3882 C14.3415,12.0982 12.1775,14.2932 9.4735,14.8482 M7.9995,0.0002 C3.5815,0.0002 -0.0005,3.5812 -0.0005,8.0002 C-0.0005,12.4182 3.5815,15.9992 7.9995,15.9992 C12.4185,15.9992 15.9995,12.4182 15.9995,8.0002 C15.9995,3.5812 12.4185,0.0002 7.9995,0.0002"/>
           </svg>
         </button>
         <ul class="sg-acc-panel sg-right sg-checklist">
@@ -141,7 +154,7 @@
 </div>
 
     </script>
-    
+
     <!-- the template for the modal slider -->
     <script type="text/mustache" id="pl-panel-template-base">
       <div class="sg-pattern-extra-inner">
@@ -165,7 +178,7 @@
           </div>
 
           <h2 class="sg-pattern-title">
-            {{ patternNameCaps }}
+            {{ patternName }}
             {{# patternState }}
               <span class="sg-pattern-state {{ patternState }}">{{ patternState }}</span>
             {{/ patternState }}
@@ -243,19 +256,22 @@
 </div><!--end .sg-pattern-extra-inner-->
 
     </script>
-    
-    <!-- the tempalte for code-related tabs in the code view slider -->
-    <script type="text/mustache" id="pl-panel-template-code">
-      <pre class="language-markup">
-  <code id="sg-code-fill-{{ language }}" class="language-{{ language }}">{{{ code }}}</code>
-</pre>
 
+    <!-- the template for code-related tabs in the code view slider -->
+    <script type="text/mustache" id="pl-panel-template-code">
+      <pre class="language-markup"><code id="sg-code-fill-{{ language }}" class="language-{{ language }}">{{{ code }}}</code></pre>
+<button class="sg-btn-copy-code" data-clipboard-target="#sg-code-fill-html">
+	<img src="styleguide/images/clipboard.svg" alt="Copy to Clipboard"> Copy HTML
+</button>
     </script>
-    
+
     <!-- load the data generated by pattern lab -->
     <script src="styleguide/data/patternlab-data.js"></script>
     <script src="annotations/annotations.js"></script>
-    
+
+    <!-- load the clipboard script -->
+    <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.13/clipboard.min.js"></script>
+
     <!-- load the external library js -->
     <script src="styleguide/bower_components/jquery.min.js"></script>
     <script src="styleguide/bower_components/hogan-3.0.2.min.js"></script>
@@ -265,14 +281,14 @@
     <script src="styleguide/bower_components/typeahead.bundle.min.js"></script>
     <script src="styleguide/bower_components/EventEmitter.min.js"></script>
     <script src="styleguide/bower_components/script.min.js"></script>
-    
+
     <!-- set-up the dispatcher -->
     <script>
       var Dispatcher = new EventEmitter();
     </script>
-    
+
     <!-- load the pattern lab viewer js -->
     <script src="styleguide/js/patternlab-viewer.min.js"></script>
-    
+
   </body>
 </html>
